@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bullet" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAEAAAAABAAAEAAAQAAAACACABAAEE=</HashCode>
+      <FileName>Assets\Script\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraController" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Script\CameraController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardData" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardDataList" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardEffect" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardEffect_BleedShoot" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardEffect_BleedShoot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardEffect_DoubleShoot" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardEffect_DoubleShoot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardEffect_Penetrate" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardEffect_Penetrate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardLoader" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAACAAAAEA=</HashCode>
+      <FileName>Assets\Script\CardLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardScript" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhAAAAAACAAAAAAAAAAAAgAAAgAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Assets\Script\CardScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageController" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\DamageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageModel" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\DamageModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeckSystem" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\DeckSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyUnit" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAiAAAAAwICIEKBAAABAQAQAEAAAiiAAYCAk=</HashCode>
+      <FileName>Assets\Script\EnemyUnit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SpawnData" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAgAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Script\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEICGACI5AAAAAAAAAAAEAAAABQCEAAIEABsA=</HashCode>
+      <FileName>Assets\Script\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GunAim" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAQAAAAAAAABAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\GunAim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthBar" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAA=</HashCode>
+      <FileName>Assets\Script\HealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hud" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgBAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Script\Hud.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAiCAAQAAAIAACQAAABBABQAAECABgAAQAUA=</HashCode>
+      <FileName>Assets\Script\PlayerController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Reposition" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\Reposition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Revolver" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>qAQQAAAAACYAAAQBAAQgAAAUAAAEAEIACAAIAAACAAA=</HashCode>
+      <FileName>Assets\Script\Revolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RevolverUI" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\RevolverUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IBulletEffect">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\IBulletEffect.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IDamageable" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Script\IDamageable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="DamageType" Collapsed="true">
+    <Position X="7.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Script\DamageModel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

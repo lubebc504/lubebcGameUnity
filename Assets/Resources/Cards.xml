@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardDataList>
+  <Card id="0">
+    <cardName>탄환</cardName>
+    <description>평범하다</description>
+    <spriteName></spriteName>
+    <script>Normal</script>
+    <Duration>999999</Duration>
+  </Card>
+  <Card id="1">
+    <cardName>쎈 탄환</cardName>
+    <description>데미지가 2배다</description>
+    <spriteName>fire_card</spriteName>
+    <script>DoubleShoot</script>
+    <Duration>5</Duration>
+  </Card>
+  <Card id="2">
+    <cardName>출혈탄</cardName>
+    <description>출혈 데미지가 있다.</description>
+    <spriteName>bleed_card</spriteName>
+    <script>BleedShoot</script>
+    <Duration>5</Duration>
+  </Card>
+  <Card id="3">
+    <cardName>철갑탄</cardName>
+    <description>적들은 관통한다.</description>
+    <spriteName>fast_card</spriteName>
+    <script>Penetrate</script>
+    <Duration>5</Duration>
+  </Card>
+</CardDataList>
