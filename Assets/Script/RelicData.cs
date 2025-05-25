@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml.Serialization;
+using System;
 
-public class RelicData : MonoBehaviour
+[Serializable]
+public class RelicData
 {
     [XmlAttribute("id")]
     public int relicId;

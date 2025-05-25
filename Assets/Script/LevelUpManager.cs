@@ -33,6 +33,7 @@ public class LevelUpManager : MonoBehaviour
 
     public void ShowChoices()
     {
+        GameManager.Instance.isBlockingInput = true;
         levelUpPanel.SetActive(true);
         Time.timeScale = 0f;
         foreach (Transform child in cardSlotContainer)
@@ -90,5 +91,6 @@ public class LevelUpManager : MonoBehaviour
     {
         levelUpPanel.SetActive(false);
         Time.timeScale = 1f;
+        GameManager.Instance.isBlockingInput = false;
     }
 }

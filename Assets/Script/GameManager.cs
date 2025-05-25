@@ -12,6 +12,8 @@ public class SpawnData
 
 public class GameManager : MonoBehaviour
 {
+    public bool isBlockingInput = false;
+
     public delegate void LevelUpHandler();
 
     public static event LevelUpHandler OnLevelUp;

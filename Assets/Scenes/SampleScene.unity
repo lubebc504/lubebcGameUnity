@@ -417,6 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91185913a4df03c40b6ee61ec88407a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBlockingInput: 0
   spawnData:
   - spawnTime: 3
     possibleEnemyTypes: 00000000
@@ -10722,8 +10723,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1473699627}
   - component: {fileID: 1473699626}
+  - component: {fileID: 1473699628}
   m_Layer: 0
-  m_Name: CardLoader
+  m_Name: Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10757,6 +10759,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1473699628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473699625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8daa30289ecb3499853559b29a3287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadedRelicData: []
 --- !u!1 &1513425985
 GameObject:
   m_ObjectHideFlags: 0

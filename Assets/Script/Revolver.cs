@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Revolver : MonoBehaviour
 {
     [Header("Bullet Settings")]
     public GameObject bulletPrefab; // 총알 프리팹
+
     public Transform firePoint; // 총알이 나가는 위치
     public float fireRate = 0.2f; // 연사 속도
     private float nextFireTime = 0f;
 
     [Header("Ammo Settings")]
     public int magazineSize = 6; // 한 탄창의 총알 개수
+
     public int currentAmmo;       // 현재 남아있는 총알 수
     public float reloadTime = 1.5f; // 재장전 시간
     public bool isReloading = false;
     private Coroutine reloadCoroutine;
     public Text ammoText;
-
-
 
     [Header("Card Effect")]
     public CardEffect activeCardEffect; // 현재 활성화된 카드 효과
@@ -32,7 +33,7 @@ public class Revolver : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Time.time >= nextFireTime)
+        if (Input.GetMouseButtonDown(0) && Time.time >= nextFireTime && GameManager.Instance.isBlockingInput == false)
         {
             if (!isReloading)
             {
