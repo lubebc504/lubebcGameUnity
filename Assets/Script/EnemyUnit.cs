@@ -27,6 +27,8 @@ public class EnemyUnit : MonoBehaviour, IDamageable
     public GameObject expItemPrefab;
     public GameObject cardBoxPrefab;
 
+    public bool isSlowed = false;
+
     protected virtual void OnEnable()
     {
         enemyRigid = GetComponent<Rigidbody2D>();
@@ -107,6 +109,7 @@ public class EnemyUnit : MonoBehaviour, IDamageable
     public virtual void TakeDamage(DamageModel damageModel)
     {
         health -= damageModel.baseDamage;
+        Debug.Log("[피격] 받은 데미지: " + damageModel.baseDamage);
         enemyAnimator.SetTrigger("Hit");
 
         if (health <= 0f)
@@ -129,17 +132,11 @@ public class EnemyUnit : MonoBehaviour, IDamageable
             enemyCollider.enabled = false;
         }
 
-        if (expItemPrefab != null)
-        {
-            Instantiate(expItemPrefab, transform.position, Quaternion.identity);
-        }
+        DropManager.instance.DropExp(transform.position);
+        DropManager.instance.DropCard(transform.position, 0.5f);
 
         GameManager.Instance.kill++;
-        float dropChance = 0.5f;
-        if (Random.value < dropChance)
-        {
-            Instantiate(cardBoxPrefab, transform.position, Quaternion.identity);
-        }
+
         enemyAnimator.SetBool("Dead", true);
         Destroy(this.gameObject, 1f);
     }
@@ -158,12 +155,12 @@ public class EnemyUnit : MonoBehaviour, IDamageable
     protected virtual IEnumerator BleedCoroutine(float damage, float interval)
     {
         isBleeding = true;
-
+        yield return new WaitForSeconds(interval);
         while (bleedRemainingTime > 0f && isLive)
         {
             health -= damage;
             enemyAnimator.SetTrigger("Hit");
-
+            Debug.Log($"출혈 피해: {damage}, 남은 체력: {health}");
             if (health <= 0f)
             {
                 TakeDamage(new DamageModel { baseDamage = 0 });

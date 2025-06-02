@@ -39,6 +39,14 @@ public class Bullet : MonoBehaviour
             // 카드 효과 발동 (OnHit)
             cardEffect?.OnHit(this, collision.gameObject);
 
+            foreach (var relic in PlayerController.instance.relics)
+            {
+                if (relic != null && collision.TryGetComponent(out EnemyUnit enemy))
+                {
+                    relic.OnHit(PlayerController.instance, enemy);
+                }
+            }
+
             if (!canPenetrate)
             {
                 Destroy(gameObject);

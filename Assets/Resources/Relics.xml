@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelicDataList>
   <Relic id="0">
-    <name>불굴의 심장</name>
+    <name>체력 증가 유물</name>
     <description>최대 체력이 20% 증가합니다.</description>
-    <script>RelicEffect_HeartBoost</script>
+    <script>HeartBoost</script>
     <iconName>heart_relic</iconName>
   </Relic>
   <Relic id="1">
-    <name>피의 인장</name>
+    <name>출혈 증가 유물</name>
     <description>출혈 데미지가 1 증가합니다.</description>
-    <script>RelicEffect_BleedBoost</script>
+    <script>BleedBoost</script>
     <iconName>bleed_relic</iconName>
+  </Relic>
+  <Relic id="2">
+    <name>감속 유물</name>
+    <description>적중 시 적을 1초간 느리게 합니다.</description>
+    <script>FreezeSlow</script>
+    <iconName>ice_relic</iconName>
   </Relic>
 </RelicDataList>

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
-    private float maxHealth;
+    public float maxHealth;
     public float playerhp;
     public HealthBar healthBar;
 
@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public static PlayerController instance;
 
+    public List<RelicEffect> relics = new List<RelicEffect>();
     public bool isLive;
 
     private void Awake()
@@ -43,6 +44,23 @@ public class PlayerController : MonoBehaviour, IDamageable
             PlayerMove();
         }
         healthBar.SetHealth(playerhp, maxHealth);
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            // 로딩된 유물 중 id=1인 것 찾기
+            var relicLoader = FindObjectOfType<RelicLoader>();
+            RelicData bleedRelic = relicLoader.loadedRelicData.Find(r => r.relicId == 2);
+
+            if (bleedRelic != null)
+            {
+                AcquireRelic(bleedRelic);
+                Debug.Log($"테스트 유물 '{bleedRelic.name}' 지급 완료");
+            }
+            else
+            {
+                Debug.LogError("피의 인장 유물 데이터를 찾을 수 없습니다!");
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -132,5 +150,35 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void StopTime()
     {
         Time.timeScale = 0f;
+    }
+
+    public void AcquireRelic(RelicData relicData)
+    {
+        var existing = relics.Find(r => r.data.relicId == relicData.relicId);
+
+        if (existing != null)
+        {
+            Debug.Log("유물 중첩 테스트. 개수:" + (existing.stack + 1));
+            existing.OnStack(this); // 중첩 처리
+        }
+        else
+        {
+            System.Type type = System.Type.GetType("RelicEffect_" + relicData.script);
+            if (type != null && typeof(RelicEffect).IsAssignableFrom(type))
+            {
+                RelicEffect effect = gameObject.AddComponent(type) as RelicEffect;
+                effect.data = relicData;
+                effect.stack = 1;
+                effect.OnEquip(this);
+                relics.Add(effect);
+                Debug.Log("RelicEffect 컴포넌트 추가됨: " + effect);
+                Debug.Log("현재 relics.Count = " + relics.Count);
+                Debug.Log($"유물 '{relicData.name}' 획득! 스택 1");
+            }
+            else
+            {
+                Debug.LogWarning($"RelicEffect 클래스 '{relicData.script}'을 찾을 수 없음");
+            }
+        }
     }
 }

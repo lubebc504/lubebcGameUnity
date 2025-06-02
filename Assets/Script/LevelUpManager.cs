@@ -6,36 +6,93 @@ using UnityEngine.UI;
 public class LevelUpManager : MonoBehaviour
 {
     public GameObject levelUpPanel;
-    public Transform cardSlotContainer;
+    public GameObject cardSelectPanel;
     public GameObject cardSlotPrefab;
+    public GameObject relicSlotPrefab; // -> RelicSelect 프리팹
+    public GameObject cardAddButtonPrefab; // -> CardSelect 프리팹
+
+    public Transform cardSlotContainer;
+
+    public Transform selectContainer; // 레벨업 때 유물 등등 보여주기
 
     public int choiceNumber = 3;
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
-
     private void OnEnable()
     {
-        GameManager.OnLevelUp += ShowChoices;
+        GameManager.OnLevelUp += ShowRoot;
     }
 
     private void OnDisable()
     {
-        GameManager.OnLevelUp -= ShowChoices;
+        GameManager.OnLevelUp -= ShowRoot;
     }
 
-    public void ShowChoices()
+    public void ShowRoot()
     {
         GameManager.Instance.isBlockingInput = true;
         levelUpPanel.SetActive(true);
         Time.timeScale = 0f;
+
+        foreach (Transform child in selectContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        RelicData relic = GetRandomRelic();
+        GameObject relicSlot = Instantiate(relicSlotPrefab, selectContainer);
+        relicSlot.GetComponentInChildren<Text>().text = relic.name;
+
+        Image relicImage = relicSlot.transform.Find("RelicImage").GetComponent<Image>();
+        Sprite icon = Resources.Load<Sprite>($"Image/{relic.iconName}");
+        if (icon != null)
+            relicImage.sprite = icon;
+
+        Button relicBtn = relicSlot.GetComponent<Button>();
+        relicBtn.onClick.AddListener(() => SelectRelic(relic));
+
+        GameObject cardbtn = Instantiate(cardAddButtonPrefab, selectContainer);
+        Button cardBtn = cardbtn.GetComponent<Button>();
+        cardBtn.onClick.AddListener(() => ShowChoices());
+    }
+
+    public RelicData GetRandomRelic()
+    {
+        List<RelicData> allRelics = new List<RelicData>(FindObjectOfType<RelicLoader>().loadedRelicData);
+        if (allRelics.Count == 0)
+        {
+            return null;
+        }
+
+        int index = Random.Range(0, allRelics.Count);
+        Debug.Log("현재 인덱스는 :" + index);
+        return allRelics[index];
+    }
+
+    public void SelectRelic(RelicData relic)
+    {
+        PlayerController.instance.AcquireRelic(relic);
+        Debug.Log($"{relic.name} 유물 획득!");
+
+        foreach (Transform child in selectContainer)
+        {
+            if (child.GetComponentInChildren<Text>().text == relic.name)
+            {
+                Destroy(child.gameObject);
+                break;
+            }
+        }
+    }
+
+    public void ShowChoices()
+    {
+        ClosePanel();
+        if (!cardSelectPanel.activeSelf)
+        {
+            GameManager.Instance.isBlockingInput = true;
+            cardSelectPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
         foreach (Transform child in cardSlotContainer)
         {
             Destroy(child.gameObject);
@@ -78,18 +135,26 @@ public class LevelUpManager : MonoBehaviour
 
         Debug.Log($"{selected.cardName} 카드 획득!");
 
-        ClosePanel();
+        CloseSelectPanel();
     }
 
     public void Skip()
     {
         Debug.Log("보상을 선택하지 않고 스킵함.");
-        ClosePanel();
+        CloseSelectPanel();
     }
 
     public void ClosePanel()
     {
-        levelUpPanel.SetActive(false);
+        if (levelUpPanel.activeSelf)
+        {
+            levelUpPanel.SetActive(false);
+        }
+    }
+
+    public void CloseSelectPanel()
+    {
+        cardSelectPanel.SetActive(false);
         Time.timeScale = 1f;
         GameManager.Instance.isBlockingInput = false;
     }
