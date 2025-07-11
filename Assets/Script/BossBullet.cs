@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BossBullet : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 5f;
     public float lifetime = 3f;
     public Rigidbody2D rb;
     public DamageModel damageModel = new DamageModel();
 
-    public CardEffect cardEffect; // 현재 적용된 카드 효과
     public bool canPenetrate = false;
 
     private void Awake()
     {
-        damageModel.baseDamage = 2f;
+        damageModel.baseDamage = 15f;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -23,25 +22,15 @@ public class Bullet : MonoBehaviour
         rb.velocity = direction.normalized * speed;
         damageModel = damage;
 
+        // Lifetime 이후 삭제
         Destroy(gameObject, lifetime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && collision.TryGetComponent(out IDamageable target))
+        if (collision.CompareTag("Player") && collision.TryGetComponent(out IDamageable target))
         {
             target.TakeDamage(damageModel);
-
-            // 카드 효과 발동 (OnHit)
-            cardEffect?.OnHit(this, collision.gameObject);
-
-            foreach (var relic in PlayerController.instance.relics)
-            {
-                if (relic != null && collision.TryGetComponent(out EnemyUnit enemy))
-                {
-                    relic.OnHit(PlayerController.instance, enemy);
-                }
-            }
 
             if (!canPenetrate)
             {

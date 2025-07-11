@@ -19,11 +19,9 @@ public class GunAim : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f;
 
-        // 총구 방향 계산
         Vector2 direction = (mousePosition - transform.position).normalized;
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // 부드러운 회전 적용
         float angle = Mathf.LerpAngle(transform.eulerAngles.z, targetAngle, Mathf.Clamp(Time.deltaTime * rotationSpeed, 0f, 1f));
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
 

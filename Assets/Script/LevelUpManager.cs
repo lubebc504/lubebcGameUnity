@@ -8,8 +8,8 @@ public class LevelUpManager : MonoBehaviour
     public GameObject levelUpPanel;
     public GameObject cardSelectPanel;
     public GameObject cardSlotPrefab;
-    public GameObject relicSlotPrefab; // -> RelicSelect 프리팹
-    public GameObject cardAddButtonPrefab; // -> CardSelect 프리팹
+    public GameObject relicSlotPrefab;
+    public GameObject cardAddButtonPrefab;
 
     public Transform cardSlotContainer;
 
@@ -19,12 +19,13 @@ public class LevelUpManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.OnLevelUp += ShowRoot;
+        GameManager.Instance.OnLevelUp.AddListener(ShowRoot);
     }
 
     private void OnDisable()
     {
-        GameManager.OnLevelUp -= ShowRoot;
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnLevelUp.RemoveListener(ShowRoot);
     }
 
     public void ShowRoot()
@@ -107,7 +108,7 @@ public class LevelUpManager : MonoBehaviour
             ui.SetCard(card);
 
             Button btn = slot.AddComponent<Button>();
-            btn.transition = Selectable.Transition.None; // 버튼처럼 보이지 않게
+            btn.transition = Selectable.Transition.None;
             btn.onClick.AddListener(() => SelectCard(card));
         }
     }
@@ -122,7 +123,7 @@ public class LevelUpManager : MonoBehaviour
             int index = Random.Range(0, allCards.Count);
             CardData pick = allCards[index];
             result.Add(pick);
-            allCards.RemoveAt(index); // 복사본에서만 제거
+            allCards.RemoveAt(index);
         }
 
         return result;

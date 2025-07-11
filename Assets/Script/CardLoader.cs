@@ -15,7 +15,7 @@ public class CardLoader : MonoBehaviour
 
     public void LoadCardData()
     {
-        TextAsset xmlAsset = Resources.Load<TextAsset>("Cards"); // 확장자 제외
+        TextAsset xmlAsset = Resources.Load<TextAsset>("Cards");
         if (xmlAsset == null)
         {
             Debug.LogError("Cards.xml 파일을 찾을 수 없습니다!");

@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BossBullet">
+    <Position X="12.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAEAAAAAAAAAEAAAQAAAACAAABAAEE=</HashCode>
+      <FileName>Assets\Script\BossBullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bullet">
+    <Position X="14" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAEAAAAABAAAEAAAQAAAACAAABAAEE=</HashCode>
+      <FileName>Assets\Script\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraController">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAICAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Script\CameraController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardBox">
+    <Position X="18.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAEAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardData">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAAAIAAAAAAAAAIAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardDataList">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardEffect">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardEffect_BleedShoot">
+    <Position X="3.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardEffect_BleedShoot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardEffect_DoubleShoot">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardEffect_DoubleShoot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardEffect_Normal">
+    <Position X="6.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardEffect_Normal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardEffect_Penetrate">
+    <Position X="8.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardEffect_Penetrate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardHandManager">
+    <Position X="19.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAADAAAAAAAgACIAAAEAAFBEAABAAIQAIEQAA=</HashCode>
+      <FileName>Assets\Script\CardHandManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardLoader">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAACAAAAEA=</HashCode>
+      <FileName>Assets\Script\CardLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardUI">
+    <Position X="18" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAEAAgAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Assets\Script\CardUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageModel">
+    <Position X="10.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\DamageModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DropManager">
+    <Position X="20.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAEAAAIAAAAAAAAAABAIAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Script\DropManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyUnit">
+    <Position X="1.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAiAEAAAwICIEKBAAQBAQIQAEAAAiiAAYCAk=</HashCode>
+      <FileName>Assets\Script\EnemyUnit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ExpItem">
+    <Position X="16.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAECAAAAAAAABAACAAAEAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\ExpItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpawnData">
+    <Position X="14.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAgAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Script\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="12.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAICGADI5CAAEAAAAIAIEAAAABRCEAAIEABsA=</HashCode>
+      <FileName>Assets\Script\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GunAim">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAQAAAAAAAABAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\GunAim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthBar">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAA=</HashCode>
+      <FileName>Assets\Script\HealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hud">
+    <Position X="19.75" Y="1.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Hud.InfoType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Script\Hud.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAgBAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Script\Hud.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelUpManager">
+    <Position X="11" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ANCCAAIAAAAEAgAAAgAAAIAAAAAEQAAIIRAAAAAAGAA=</HashCode>
+      <FileName>Assets\Script\LevelUpManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAIAiCAAQAAAIAACQAIABBABQAAECAJkAAQAUA=</HashCode>
+      <FileName>Assets\Script\PlayerController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReaperBoss">
+    <Position X="5.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIEAIAAAACAAAAAgAAgAAAAAAAAAAAAAIAAAgCEECQA=</HashCode>
+      <FileName>Assets\Script\ReaperBoss.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RelicData">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAIAAAAAAAAAAEAIEAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\RelicData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RelicDataList">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\Script\RelicDataList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RelicEffect" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAACAAAAAIBEAAAQAAIAAAA=</HashCode>
+      <FileName>Assets\Script\RelicEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RelicEffect_BleedBoost" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\RelicEffect_BleedBoost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RelicEffect_FreezeSlow" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\RelicEffect_FreezeSlow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RelicEffect_HeartBoost" Collapsed="true">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Script\RelicEffect_HeartBoost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RelicLoader">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAABAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Script\RelicLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RelicManager">
+    <Position X="19.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAACAAAAAAAAAAAAAAAAAAAAAgAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\RelicManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Reposition">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\Reposition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Revolver">
+    <Position X="8.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAQQAAAAACYAAAAAAAQAAAAQAAAEIAIACAAIAAACAAA=</HashCode>
+      <FileName>Assets\Script\Revolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RevolverUI">
+    <Position X="16.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\RevolverUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestDeckBuilder" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAACAAAAAAAAAgAAAAAAEA=</HashCode>
+      <FileName>Assets\Script\TestDeckBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IDamageable">
+    <Position X="7" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Script\IDamageable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

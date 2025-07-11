@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class SpawnData
@@ -14,9 +15,7 @@ public class GameManager : MonoBehaviour
 {
     public bool isBlockingInput = false;
 
-    public delegate void LevelUpHandler();
-
-    public static event LevelUpHandler OnLevelUp;
+    public UnityEvent OnLevelUp = new UnityEvent();
 
     public SpawnData[] spawnData;
 
@@ -26,7 +25,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public GameObject[] enemyPrefab; // 적 프리팹
-    public List<GameObject>[] pools;
 
     public float spawnInterval = 1.5f; // 적 스폰 간격 (초)
     public float spawnRadius = 10f; // 플레이어 기준 스폰 반경
@@ -36,28 +34,39 @@ public class GameManager : MonoBehaviour
 
     public Transform playertr;
 
-    [Header("# Game Control")]
+    [Header("Game Control")]
     public float gameTime;
 
     public float maxGameTime = 2000f;
     public int spawnlevel;
 
-    [Header("# Player Info")]
+    [Header("layer Info")]
     public int level;
 
     public int kill;
     public int exp;
     public int[] nextExp = { 10, 30, 60, 100, 150, 210, 280, 360, 450, 600 };
 
+    [Header("Boss Spawn")]
+    public GameObject bossPrefab;
+
+    public float bossSpawnTime = 120f;
+    private bool bossSpawned = false;
+
     //private Transform player; // 플레이어 참조
     public void Awake()
     {
-        if (Instance == null) Instance = this;
-
-        pools = new List<GameObject>[enemyPrefab.Length];
-        for (int i = 0; i < pools.Length; i++)
+        if (Instance == null)
         {
-            pools[i] = new List<GameObject>();
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            if (Instance != null)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 
@@ -88,10 +97,15 @@ public class GameManager : MonoBehaviour
         {
             gameTime = maxGameTime;
         }
+
+        if (!bossSpawned && gameTime >= bossSpawnTime)
+        {
+            SpawnBoss();
+        }
     }
 
     // 적을 스폰하는 메서드
-    private void SpawnEnemies()
+    public void SpawnEnemies()
     {
         for (int i = 0; i < spawnCount; i++)
         {
@@ -104,15 +118,23 @@ public class GameManager : MonoBehaviour
             int enemyIndex = possibleTypes[Random.Range(0, possibleTypes.Length)];
             EnemyUnit unit = Instantiate(enemyPrefab[enemyIndex], spawnPos, Quaternion.identity)
            .GetComponent<EnemyUnit>();
-            unit.Init(data.healthMultiplier); // speedMultiplier는 현재 무시
-            // 별도 Init 없이도 각 프리팹의 스탯 사용
+            unit.Init(data.healthMultiplier);
         }
     }
 
-    // 랜덤한 스폰 위치 계산 (플레이어 주변에서 일정 거리 바깥)
-    private Vector3 GetSpawnPosition()
+    public void SpawnBoss()
     {
-        float angle = Random.Range(0f, 360f); // 0도 ~ 360도 랜덤 각도
+        Vector3 spawnPos = GetSpawnPosition();
+        Instantiate(bossPrefab, spawnPos, Quaternion.identity);
+
+        bossSpawned = true;
+        Debug.Log("보스 스폰!");
+    }
+
+    // 랜덤한 스폰 위치 계산 (플레이어 주변에서 일정 거리 바깥)
+    public Vector3 GetSpawnPosition()
+    {
+        float angle = Random.Range(0f, 360f);
         float distance = Random.Range(spawnRadius, spawnRadius + 3f); // 일정 거리 이상 떨어지도록 설정
 
         Vector3 spawnPos = playertr.position + new Vector3(
@@ -131,7 +153,7 @@ public class GameManager : MonoBehaviour
         {
             exp -= nextExp[level];
             level++;
-
+            player.playerhp += 50;
             OnLevelUp?.Invoke();
         }
     }

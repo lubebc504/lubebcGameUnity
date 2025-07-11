@@ -13,7 +13,7 @@ public class CardData
     public string cardName;
     public string description;
     public string script;
-    public string spriteName; // Resources에서 불러올 이름
+
     public float duration = 5f; //  기본 5초
 }
 

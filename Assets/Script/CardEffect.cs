@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CardEffect : MonoBehaviour
 {
-    public CardData data; // Ãß°¡
+    public CardData data;
 
     public virtual void OnFire(Bullet bullet)
     { }

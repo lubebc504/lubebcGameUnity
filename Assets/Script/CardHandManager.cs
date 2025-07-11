@@ -57,7 +57,7 @@ public class CardHandManager : MonoBehaviour
     private void DrawHand()
     {
         ClearHand();
-        StartCoroutine(DrawMultipleCards(4)); // 4장 목표
+        StartCoroutine(DrawMultipleCards(4)); // 4장
     }
 
     private IEnumerator DrawMultipleCards(int drawCount)
@@ -84,7 +84,7 @@ public class CardHandManager : MonoBehaviour
             DrawCard();
             remaining--;
 
-            yield return null; // 1프레임 기다리면서 자연스럽게 생성
+            yield return null;
         }
     }
 

@@ -19,10 +19,23 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public List<RelicEffect> relics = new List<RelicEffect>();
     public bool isLive;
+    public RelicManager relicsUI;
 
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            if (instance != null)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
         playerRigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         playerAnim = GetComponent<Animator>();
@@ -44,23 +57,6 @@ public class PlayerController : MonoBehaviour, IDamageable
             PlayerMove();
         }
         healthBar.SetHealth(playerhp, maxHealth);
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            // 로딩된 유물 중 id=1인 것 찾기
-            var relicLoader = FindObjectOfType<RelicLoader>();
-            RelicData bleedRelic = relicLoader.loadedRelicData.Find(r => r.relicId == 2);
-
-            if (bleedRelic != null)
-            {
-                AcquireRelic(bleedRelic);
-                Debug.Log($"테스트 유물 '{bleedRelic.name}' 지급 완료");
-            }
-            else
-            {
-                Debug.LogError("피의 인장 유물 데이터를 찾을 수 없습니다!");
-            }
-        }
     }
 
     private void FixedUpdate()
@@ -86,7 +82,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             playerhp -= damageModel.baseDamage;
             StartCoroutine(ChanColoronDamage());
-            Debug.Log($"{gameObject.name} took {damageModel.baseDamage} damage of type {damageModel.damageType}. Remaining health: {playerhp}");
         }
 
         if (playerhp <= 0f)
@@ -99,11 +94,11 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         isLive = false;
         playerAnim.SetTrigger("IsDead");
-        DestroyChildren();  // 자식 오브젝트 삭제
+        DestroyChildren();
         Collider2D playerCollider = GetComponent<Collider2D>();
         if (playerCollider != null)
         {
-            Destroy(playerCollider);  // Collider2D 삭제
+            Destroy(playerCollider);
         }
     }
 
@@ -159,7 +154,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (existing != null)
         {
             Debug.Log("유물 중첩 테스트. 개수:" + (existing.stack + 1));
-            existing.OnStack(this); // 중첩 처리
+            existing.OnStack(this);
         }
         else
         {
@@ -171,7 +166,7 @@ public class PlayerController : MonoBehaviour, IDamageable
                 effect.stack = 1;
                 effect.OnEquip(this);
                 relics.Add(effect);
-                Debug.Log("RelicEffect 컴포넌트 추가됨: " + effect);
+                Debug.Log("RelicEffect  추가됨: " + effect);
                 Debug.Log("현재 relics.Count = " + relics.Count);
                 Debug.Log($"유물 '{relicData.name}' 획득! 스택 1");
             }
@@ -180,5 +175,6 @@ public class PlayerController : MonoBehaviour, IDamageable
                 Debug.LogWarning($"RelicEffect 클래스 '{relicData.script}'을 찾을 수 없음");
             }
         }
+        relicsUI.UpdateRelicUI();
     }
 }

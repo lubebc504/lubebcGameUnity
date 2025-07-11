@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardEffect_Normal : MonoBehaviour
+public class CardEffect_Normal : CardEffect
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnFire(Bullet bullet)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.OnFire(bullet);
     }
 }

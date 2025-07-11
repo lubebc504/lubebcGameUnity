@@ -13,21 +13,15 @@ public class RelicEffect : MonoBehaviour
     public virtual void OnStack(PlayerController player)
     {
         stack++;
-        OnEquip(player); // 스택 반영
+        OnEquip(player);
     }
 
     public virtual void OnKill(PlayerController player, EnemyUnit enemy)
     { }
 
-    public virtual void OnUpdate(PlayerController player)
-    { }
-
-    public virtual void OnBulletFire(Bullet bullet)
-    { }
-
     public virtual float GetBleedBonus()
     {
-        return 0f; // 기본 유물은 출혈에 영향 없음
+        return 0f;
     }
 
     public virtual void OnHit(PlayerController player, EnemyUnit enemy)

@@ -133,7 +133,7 @@ public class EnemyUnit : MonoBehaviour, IDamageable
         }
 
         DropManager.instance.DropExp(transform.position);
-        DropManager.instance.DropCard(transform.position, 0.5f);
+        DropManager.instance.DropCard(transform.position, 0.15f);
 
         GameManager.Instance.kill++;
 
