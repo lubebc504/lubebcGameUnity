@@ -20,9 +20,9 @@ public class EnemyUnit : MonoBehaviour, IDamageable
     private Coroutine damageCoroutine;
 
     public bool bleedImmune = false;
-    private Coroutine bleedCoroutine;
+    public Coroutine bleedCoroutine;
     public float bleedRemainingTime = 0f;
-    private bool isBleeding = false;
+    public bool isBleeding = false;
 
     public GameObject expItemPrefab;
     public GameObject cardBoxPrefab;

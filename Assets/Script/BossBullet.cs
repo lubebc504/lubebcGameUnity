@@ -22,7 +22,6 @@ public class BossBullet : MonoBehaviour
         rb.velocity = direction.normalized * speed;
         damageModel = damage;
 
-        // Lifetime 이후 삭제
         Destroy(gameObject, lifetime);
     }
 

@@ -6,7 +6,7 @@ public class ExpItem : MonoBehaviour
 {
     public int expAmount = 1;
     public float moveSpeed = 3f;
-    public float attractRange = 3f; // 흡수 거리
+    public float attractRange = 3f;
     private Transform player;
 
     private void Start()
@@ -22,7 +22,6 @@ public class ExpItem : MonoBehaviour
 
         if (distance <= attractRange)
         {
-            // 플레이어 방향으로 이동
             Vector3 dir = (player.position - transform.position).normalized;
             transform.position += dir * moveSpeed * Time.deltaTime;
         }

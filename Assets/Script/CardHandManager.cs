@@ -57,7 +57,7 @@ public class CardHandManager : MonoBehaviour
     private void DrawHand()
     {
         ClearHand();
-        StartCoroutine(DrawMultipleCards(4)); // 4장
+        StartCoroutine(DrawMultipleCards(4));
     }
 
     private IEnumerator DrawMultipleCards(int drawCount)
@@ -123,7 +123,7 @@ public class CardHandManager : MonoBehaviour
         // 적용
         ApplyCard(selectedCardUI.cardData);
         Debug.Log(selectedCardUI.cardData.cardName + "지속시간 :" + selectedCardUI.cardData.duration);
-        // 사용한 카드 + 나머지 카드 다 discardPile로
+
         foreach (var obj in handCards)
         {
             CardUI ui = obj.GetComponent<CardUI>();
@@ -139,11 +139,9 @@ public class CardHandManager : MonoBehaviour
     {
         if (revolver == null) return;
 
-        // 기존 효과 제거
         if (revolver.activeCardEffect != null)
-            Destroy(revolver.activeCardEffect);
+            revolver.activeCardEffect = null;
 
-        // 새 효과 적용
         string className = $"CardEffect_{selectedCard.script}";
         System.Type type = System.Type.GetType(className);
 
@@ -157,7 +155,6 @@ public class CardHandManager : MonoBehaviour
             Debug.LogWarning($"CardEffect 클래스 '{className}'을 찾을 수 없습니다.");
         }
 
-        // 지속시간 코루틴 시작
         if (effectRoutine != null)
             StopCoroutine(effectRoutine);
 
@@ -170,7 +167,6 @@ public class CardHandManager : MonoBehaviour
 
         if (revolver.activeCardEffect != null)
         {
-            Destroy(revolver.activeCardEffect);
             revolver.activeCardEffect = null;
         }
 

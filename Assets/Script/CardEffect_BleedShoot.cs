@@ -11,7 +11,7 @@ public class CardEffect_BleedShoot : CardEffect
             float bleedBonus = 0f;
             foreach (var relic in PlayerController.instance.relics)
             {
-                bleedBonus += relic.GetBleedBonus();
+                bleedBonus += relic.GetBleedBonus();//나중에 여기말고 enemy쪽에 옮기는게 나을지도?
             }
 
             float bleedDmg = 1f + bleedBonus;
