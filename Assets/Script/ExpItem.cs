@@ -32,6 +32,7 @@ public class ExpItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.GetExp(expAmount);
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_COIN);
             Destroy(gameObject);
         }
     }

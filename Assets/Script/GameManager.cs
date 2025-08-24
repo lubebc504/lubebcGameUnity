@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     [Header("Boss Spawn")]
     public GameObject bossPrefab;
 
-    public float bossSpawnTime = 120f;
+    public float bossSpawnTime = 30f;
     private bool bossSpawned = false;
 
     //private Transform player; // 플레이어 참조
@@ -73,10 +73,26 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         playertr = PlayerController.instance.transform; // 플레이어의 Transform 가져오기
+        SoundManager.instance.PlayBGM(SoundManager.EBgm.BGM_GAME);
     }
 
     private void Update()
     {
+        if (Time.timeScale != 0f)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Time.timeScale = 0f;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Time.timeScale = 1f;
+            }
+        }
+
         if (playertr == null) return; // 플레이어가 없으면 실행하지 않음
 
         spawnTimer += Time.deltaTime;
@@ -153,7 +169,11 @@ public class GameManager : MonoBehaviour
         {
             exp -= nextExp[level];
             level++;
-            player.playerhp += 50;
+            player.playerhp += 20;
+            if (player.playerhp >= player.maxHealth)
+            {
+                player.playerhp = player.maxHealth;
+            }
             OnLevelUp?.Invoke();
         }
     }

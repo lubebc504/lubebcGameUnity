@@ -24,4 +24,10 @@
     <script>Penetrate</script>
     <Duration>5</Duration>
   </Card>
+  <Card id="4">
+    <cardName>지진탄</cardName>
+    <description>감속, 지속데미지.</description>
+    <script>Quake</script>
+    <Duration>5</Duration>
+  </Card>
 </CardDataList>

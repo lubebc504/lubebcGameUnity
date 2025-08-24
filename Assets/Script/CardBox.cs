@@ -23,7 +23,7 @@ public class CardBox : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             opened = true;
-
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_CHEST);
             LevelUpManager manager = FindObjectOfType<LevelUpManager>();
             if (manager != null)
             {

@@ -40,6 +40,9 @@ public class TestDeckBuilder : MonoBehaviour
         myTestDeck.Add(cardLoader.loadedCards.Find(card => card.cardId == 1)); // DoubleShoot
         myTestDeck.Add(cardLoader.loadedCards.Find(card => card.cardId == 2)); // BleedShoot
         myTestDeck.Add(cardLoader.loadedCards.Find(card => card.cardId == 3)); // Penetrate
+        myTestDeck.Add(cardLoader.loadedCards.Find(card => card.cardId == 4)); // Quake
+        myTestDeck.Add(cardLoader.loadedCards.Find(card => card.cardId == 4)); // Quake
+        myTestDeck.Add(cardLoader.loadedCards.Find(card => card.cardId == 4)); // Quake
 
         Debug.Log($"테스트 덱 완성! 카드 수: {myTestDeck.Count}");
     }

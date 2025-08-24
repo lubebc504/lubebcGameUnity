@@ -38,7 +38,7 @@ public class LevelUpManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
+        SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_LEVELUP);
         RelicData relic = GetRandomRelic();
         GameObject relicSlot = Instantiate(relicSlotPrefab, selectContainer);
         relicSlot.GetComponentInChildren<Text>().text = relic.name;
@@ -72,6 +72,7 @@ public class LevelUpManager : MonoBehaviour
     public void SelectRelic(RelicData relic)
     {
         PlayerController.instance.AcquireRelic(relic);
+        SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_BUTTON);
         Debug.Log($"{relic.name} 유물 획득!");
 
         foreach (Transform child in selectContainer)
@@ -86,6 +87,7 @@ public class LevelUpManager : MonoBehaviour
 
     public void ShowChoices()
     {
+        SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_BUTTON);
         ClosePanel();
         if (!cardSelectPanel.activeSelf)
         {
@@ -131,6 +133,7 @@ public class LevelUpManager : MonoBehaviour
 
     public void SelectCard(CardData selected)
     {
+        SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_BUTTON);
         CardHandManager deck = FindObjectOfType<CardHandManager>();
         deck.deck.Add(selected);
 
@@ -141,6 +144,7 @@ public class LevelUpManager : MonoBehaviour
 
     public void Skip()
     {
+        SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_BUTTON);
         Debug.Log("보상을 선택하지 않고 스킵함.");
         CloseSelectPanel();
     }

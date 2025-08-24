@@ -73,7 +73,7 @@ public class Revolver : MonoBehaviour
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             Bullet bulletScript = bullet.GetComponent<Bullet>();
-
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_SHOOT);
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
@@ -111,6 +111,7 @@ public class Revolver : MonoBehaviour
         for (int i = currentAmmo; i < magazineSize; i++)
         {
             yield return new WaitForSeconds(interval);
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_RELOAD);
             currentAmmo++;
             UpdateUI();
         }

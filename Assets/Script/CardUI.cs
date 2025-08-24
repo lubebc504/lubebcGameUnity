@@ -16,4 +16,14 @@ public class CardUI : MonoBehaviour
         nameText.text = data.cardName;
         descriptionText.text = data.description;
     }
+
+    public void SetHighlight(bool on)
+    {
+        GetComponent<CanvasGroup>().alpha = on ? 1f : 0.5f;
+    }
+
+    public void SetDark(bool on)
+    {
+        GetComponent<CanvasGroup>().alpha = on ? 0.3f : 1f;
+    }
 }

@@ -339,8 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274d0743ca1c6e648a578e4761f0ef53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  health: 10
+  maxHealth: 40
+  health: 40
   healthBar: {fileID: 5499926623079578583}
   speed: 1
   target: {fileID: 0}
@@ -348,6 +348,7 @@ MonoBehaviour:
   isLive: 0
   bleedImmune: 0
   bleedRemainingTime: 0
+  isBleeding: 0
   expItemPrefab: {fileID: 4111512915408720874, guid: c2c6c3bee1bba55468bc713b7c6f8261, type: 3}
   cardBoxPrefab: {fileID: 5744922286436713836, guid: 45c7ed44e99ffaa4cbbb9faa2b6010a4, type: 3}
   isSlowed: 0

@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             playerhp -= damageModel.baseDamage;
             StartCoroutine(ChanColoronDamage());
+            SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_HIT);
         }
 
         if (playerhp <= 0f)
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         playerAnim.SetTrigger("IsDead");
         DestroyChildren();
         Collider2D playerCollider = GetComponent<Collider2D>();
+        SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_DEAD);
         if (playerCollider != null)
         {
             Destroy(playerCollider);

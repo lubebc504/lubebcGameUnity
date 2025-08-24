@@ -9,12 +9,18 @@ public class CardHandManager : MonoBehaviour
 
     public GameObject cardUIPrefab;
 
+    public ActivateCardUI activeCardUI;
+
+    private List<CardData> activeCards = new List<CardData>();
+
     public List<CardData> deck = new List<CardData>();
     public List<CardData> discardPile = new List<CardData>();
     public List<GameObject> handCards = new List<GameObject>();
 
     private Revolver revolver;
     private Coroutine effectRoutine;
+
+    private bool isEffectActive = false;
 
     private void Start()
     {
@@ -37,6 +43,8 @@ public class CardHandManager : MonoBehaviour
 
     private void Update()
     {
+        if (isEffectActive) return;
+
         if (Input.GetKeyDown(KeyCode.Alpha1)) UseCard(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) UseCard(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) UseCard(2);
@@ -119,20 +127,27 @@ public class CardHandManager : MonoBehaviour
 
         CardUI selectedCardUI = handCards[index].GetComponent<CardUI>();
         if (selectedCardUI == null) return;
-
+        SoundManager.instance.PlaySFX(SoundManager.ESfx.SFX_BUTTON);
         // 적용
         ApplyCard(selectedCardUI.cardData);
         Debug.Log(selectedCardUI.cardData.cardName + "지속시간 :" + selectedCardUI.cardData.duration);
 
-        foreach (var obj in handCards)
+        for (int i = 0; i < handCards.Count; i++)
         {
-            CardUI ui = obj.GetComponent<CardUI>();
+            CardUI ui = handCards[i].GetComponent<CardUI>();
             if (ui != null)
-                discardPile.Add(ui.cardData);
-
-            Destroy(obj);
+            {
+                if (i == index)
+                {
+                    ui.SetHighlight(true);
+                }
+                else
+                {
+                    ui.SetDark(true);
+                }
+            }
         }
-        handCards.Clear();
+        isEffectActive = true;
     }
 
     private void ApplyCard(CardData selectedCard)
@@ -159,6 +174,10 @@ public class CardHandManager : MonoBehaviour
             StopCoroutine(effectRoutine);
 
         effectRoutine = StartCoroutine(EffectDurationTimer(selectedCard.duration));
+
+        activeCards.Clear();
+        activeCards.Add(selectedCard);
+        activeCardUI.RefreshActiveCards(activeCards);
     }
 
     private IEnumerator EffectDurationTimer(float duration)
@@ -170,6 +189,18 @@ public class CardHandManager : MonoBehaviour
             revolver.activeCardEffect = null;
         }
 
+        foreach (var obj in handCards)
+        {
+            CardUI ui = obj.GetComponent<CardUI>();
+            if (ui != null)
+                discardPile.Add(ui.cardData);
+
+            Destroy(obj);
+        }
+        handCards.Clear();
+        activeCards.Clear();
+        activeCardUI.RefreshActiveCards(activeCards);
         DrawHand();
+        isEffectActive = false;
     }
 }
